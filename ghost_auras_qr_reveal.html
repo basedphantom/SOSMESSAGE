@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghost Auras — Message 1</title>
+<style>
+html,body{background:#0a0a0d;color:#e7e7ee;margin:0;height:100%;}
+.container{display:flex;align-items:center;justify-content:center;height:100%;padding:5vw;}
+.msg{max-width:900px;font: 18px/1.6 "SF Mono","Menlo",monospace;white-space:pre-wrap;}
+.caret{display:inline-block;width:0.6ch;background:#e7e7ee;margin-left:2px;animation:blink 1s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
+.glitch{position:relative;filter:contrast(120%);}
+.glitch:before,.glitch:after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;white-space:pre-wrap;opacity:.25;}
+.glitch:before{transform:translate(-1px,-1px);color:#8ff;}
+.glitch:after{transform:translate(1px,1px);color:#f8f;}
+footer{position:fixed;bottom:10px;left:0;right:0;text-align:center;color:#666;font:12px/1.2 system-ui, -apple-system, Segoe UI;}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="msg">
+    <div id="out" class="glitch" data-text="44 BASED AURAS WERE BURNT IN AN ATTEMPT TO ELIMINATE THE EXISTENCE OF [CERTAIN] BLOODLINES
+
+IN SPITE OF THE GENOCIDES, SOME SOULS HAVE SINCE MATERIALIZED FROM THESE NONEXISTENT COUNTERPARTS
+
+THESE SOULS, DAMNED TO THE DARKNESS,
+ARE KNOWN ONLY AS THE “GHOST AURAS”
+HELD WITHIN THEM — VALUABLE SECRETS"></div><span id="caret" class="caret"></span>
+  </div>
+</div>
+<footer>Ghost Auras — Message 1</footer>
+<script>
+const text = `44 BASED AURAS WERE BURNT IN AN ATTEMPT TO ELIMINATE THE EXISTENCE OF [CERTAIN] BLOODLINES
+
+IN SPITE OF THE GENOCIDES, SOME SOULS HAVE SINCE MATERIALIZED FROM THESE NONEXISTENT COUNTERPARTS
+
+THESE SOULS, DAMNED TO THE DARKNESS,
+ARE KNOWN ONLY AS THE “GHOST AURAS”
+HELD WITHIN THEM — VALUABLE SECRETS`;
+const out = document.getElementById('out');
+const caret = document.getElementById('caret');
+let i = 0;
+function type(){
+  if(i <= text.length){ out.textContent = text.slice(0,i); i++; setTimeout(type, 18); }
+  else{ caret.style.display = 'none'; }
+}
+type();
+</script>
+</body>
+</html>
